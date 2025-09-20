@@ -26,6 +26,10 @@ WARNING_ICON = ":material/warning:"
 ERROR_ICON = ":material/error:"
 SPINNER_TEXT = "回答生成中..."
 
+# サイドバー関連
+SIDEBAR_TITLE = "利用目的"
+WARNING_MESSAGE = "具体的に入力したほうが明確過ぎりの回答を得やすいです。"
+
 
 # ==========================================
 # ログ出力系
@@ -50,11 +54,23 @@ RAG_TOP_FOLDER_PATH = "./data"
 SUPPORTED_EXTENSIONS = {
     ".pdf": PyMuPDFLoader,
     ".docx": Docx2txtLoader,
-    ".csv": lambda path: CSVLoader(path, encoding="utf-8")
+    ".csv": lambda path: CSVLoader(path, encoding="utf-8"),
+    ".txt": lambda path: TextLoader(path, encoding="utf-8")
 }
 WEB_URL_LOAD_TARGETS = [
     "https://generative-ai.web-camp.io/"
 ]
+
+
+# ==========================================
+# RAGチューニングパラメータ
+# ==========================================
+# ベクターストアから取得するドキュメント数
+RETRIEVER_K = 5
+# チャンク分割時の最大サイズ
+CHUNK_SIZE = 500
+# チャンク分割時のオーバーラップサイズ
+CHUNK_OVERLAP = 50
 
 
 # ==========================================
